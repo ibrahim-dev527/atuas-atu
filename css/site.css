@@ -507,9 +507,20 @@ html[data-theme="dark"] .theme-toggle .icon-moon{ display: block; }
 .admin-badge.published{ background:#E4F6E9; color:#1E7A3D; }
 .admin-badge.draft{ background:#F1F0EC; color:var(--ink-soft); }
 
+.admin-burger{ display:none; }
 @media (max-width: 860px){
   .admin-shell{ grid-template-columns: 1fr; }
-  .admin-sidebar{ flex-direction:row; overflow-x:auto; }
+  .admin-sidebar{ position:sticky; top:0; z-index:50; padding:.7rem 1rem; gap:0; overflow:visible; }
+  .admin-sidebar .brand{ margin:0; display:flex; align-items:center; gap:.6rem; min-height:44px; padding-right:3.4rem; }
+  .admin-burger{ display:flex; flex-direction:column; justify-content:center; gap:5px; position:absolute; top:.55rem; right:.8rem; width:44px; height:44px; padding:0 11px; background:rgba(255,255,255,.1); border:none; border-radius:var(--radius-s); cursor:pointer; }
+  .admin-burger span{ display:block; height:2px; background:#fff; border-radius:2px; transition:transform .2s, opacity .2s; }
+  .admin-sidebar.is-open .admin-burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .admin-sidebar.is-open .admin-burger span:nth-child(2){ opacity:0; }
+  .admin-sidebar.is-open .admin-burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .admin-sidebar > a, .admin-sidebar > .logout{ display:none; }
+  .admin-sidebar.is-open{ max-height:100vh; overflow-y:auto; padding-bottom:1rem; }
+  .admin-sidebar.is-open > a, .admin-sidebar.is-open > .logout{ display:flex; }
+  .admin-sidebar.is-open .brand{ margin-bottom:.5rem; }
 }
 
 /* ---------------- Round 2 additions ---------------- */

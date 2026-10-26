@@ -315,6 +315,21 @@ window.AdminCRUD = (function () {
   return { requireAuth, initLogout, init, initTabs, logAudit, escapeHtml };
 })();
 
+// Mobile hamburger menu for the admin sidebar
+document.addEventListener("DOMContentLoaded", () => {
+  const side = document.querySelector(".admin-sidebar");
+  const burger = document.querySelector("[data-admin-burger]");
+  if (!side || !burger) return;
+  const setOpen = (open) => {
+    side.classList.toggle("is-open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+  burger.addEventListener("click", () => setOpen(!side.classList.contains("is-open")));
+  side.querySelectorAll("a, .logout").forEach((el) => el.addEventListener("click", () => setOpen(false)));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+});
+
 document.addEventListener("DOMContentLoaded", async () => {
   await window.AdminCRUD.requireAuth();
   window.AdminCRUD.initLogout();
