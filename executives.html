@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("atuas-theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executives, ATUAS</title>
+<meta name="description" content="Meet the elected executives of ATUAS, Accra Technical University.">
+<link rel="icon" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER / NAVIGATION ============ -->
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <img src="images/logo.jpg" alt="ATUAS crest">
+      <span>ATUAS<small>Commitment Is Vital</small></span>
+    </a>
+    <div class="nav-backdrop"></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <button type="button">About <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="about.html">About ATUAS</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="constitution.html">Constitution</a></li>
+            <li><a href="executives.html">Executives</a></li>
+            <li><a href="about.html#department">Department</a></li>
+            <li><a href="faculty.html">Faculty &amp; HOD</a></li>
+            <li><a href="about.html#alumni">Alumni</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Academics <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="programmes.html">Programmes</a></li>
+            <li><a href="courses.html">Course Catalogue</a></li>
+            <li><a href="past-questions.html">Past Questions</a></li>
+            <li><a href="resources.html">Study Materials</a></li>
+            <li><a href="resources.html#support">Academic Support</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Students <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="students.html">Student Life</a></li>
+            <li><a href="students.html#freshers">Freshers Guide</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="students.html#calendar">Academic Calendar</a></li>
+            <li><a href="students.html#notices">Important Notices</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Events <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="events.html#past">Past Events</a></li>
+            <li><a href="events.html#atuas-week">ATUAS Week</a></li>
+            <li><a href="events.html#seminars">Seminars</a></li>
+            <li><a href="events.html#excursions">Excursions</a></li>
+            <li><a href="events.html#football-gala">Football Gala</a></li>
+            <li><a href="events.html#dinner">Dinner &amp; Awards</a></li>
+            <li><a href="events.html#movie-nights">Movie Nights</a></li>
+            <li><a href="events.html#freshers">Freshers Orientation</a></li>
+            <li><a href="events.html#company-visits">Company Visits</a></li>
+            <li><a href="events.html#icag">ICAG Events</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Media <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="gallery.html#video">Video Gallery</a></li>
+            <li><a href="face-of-atuas.html">Face of ATUAS</a></li>
+            <li><a href="downloads.html#publications">Publications</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Opportunities <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="opportunities.html#icag">ICAG Opportunities</a></li>
+            <li><a href="opportunities.html#scholarships">Scholarships</a></li>
+            <li><a href="opportunities.html#internships">Internships</a></li>
+            <li><a href="opportunities.html#jobs">Jobs</a></li>
+            <li><a href="opportunities.html#competitions">Competitions</a></li>
+            <li><a href="opportunities.html#development">Professional Development</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">News <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="news.html">News</a></li>
+            <li><a href="news.html#articles">Articles</a></li>
+            <li><a href="news.html#announcements">Announcements</a></li>
+            <li><a href="news.html#achievements">Student Achievements</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn--primary btn--sm" href="past-questions.html">
+        <span>Past Questions</span>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </a>
+      <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="modal-backdrop welcome-modal" data-welcome-modal>
+  <div class="modal">
+    <img src="images/logo.jpg" alt="">
+    <h3 style="margin-top:0;">Welcome to the new ATUAS website</h3>
+    <p style="color:var(--ink-soft);">This is the newly built digital home of ATUAS. Explore past questions, programmes, events and more. Some sections are still being filled in by the executive committee.</p>
+    <button class="btn btn--primary btn--sm" data-welcome-close type="button" style="margin-top:.5rem;"><span>Get started</span></button>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="inner-hero exec-hero">
+    <div class="container inner-hero-content">
+      <span class="kicker">Leadership</span>
+      <h1 style="font-size:var(--step-3);">ATUAS Executives</h1>
+      <p style="max-width:62ch;">Elected to serve, guided by ATUAS-GH and the SRC, and united by one motto: Commitment Is Vital.</p>
+    </div>
+    <div class="container">
+      <figure class="hero-figure">
+        <img src="images/executives-group.jpg" data-content-img="executives_group" alt="The ATUAS executives seated together" onerror="this.closest('figure').classList.add('is-empty')">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:1rem;">
+    <div class="container">
+      <div class="exec-grid" data-exec-grid>
+
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/president.jpg" alt="H.E. Joseph Amissah" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>JA</span>'"></div>
+          <strong>H.E. Joseph Amissah</strong>
+          <span>President</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/vice-president.jpg" alt="H.E. Jonathan Bruce" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>JB</span>'"></div>
+          <strong>H.E. Jonathan Bruce</strong>
+          <span>Vice President</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/finance-officer.jpg" alt="Hon. Kpeglo Elliot" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>KE</span>'"></div>
+          <strong>Hon. Kpeglo Elliot</strong>
+          <span>Finance Officer</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/pro.jpg" alt="Hon. Ibrahim Mohammed Lotsu" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>IL</span>'"></div>
+          <strong>Hon. Ibrahim Mohammed Lotsu</strong>
+          <span>P.R.O.</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/wocom.jpg" alt="Hon. Faustina Abena Okafor" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>FO</span>'"></div>
+          <strong>Hon. Faustina Abena Okafor</strong>
+          <span>WOCOM</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/atuas-gh-rep.jpg" alt="Hon. Ashitey Richmond Kobby" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>AK</span>'"></div>
+          <strong>Hon. Ashitey Richmond Kobby</strong>
+          <span>ATUAS-GH Rep / Coordinator</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/organizing-secretary.jpg" alt="Hon. David Ola Olufemi" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>DO</span>'"></div>
+          <strong>Hon. David Ola Olufemi</strong>
+          <span>Organizing Secretary</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/part-time-rep.jpg" alt="Hon. Adjei Enoch Adjetey" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>AA</span>'"></div>
+          <strong>Hon. Adjei Enoch Adjetey</strong>
+          <span>Part-Time Representative</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/deputy-organizing-secretary.jpg" alt="Hon. Acheamfour Akotowaa Felicia" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>AF</span>'"></div>
+          <strong>Hon. Acheamfour Akotowaa Felicia</strong>
+          <span>Deputy Organizing Secretary</span>
+        </div>
+        <div class="exec-card reveal">
+          <div class="exec-photo"><img src="images/secretary.jpg" alt="Hon. Peace Teku" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>PT</span>'"></div>
+          <strong>Hon. Peace Teku</strong>
+          <span>Secretary</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="images/logo.jpg" alt="ATUAS crest">
+        <strong style="color:var(--white);font-family:var(--font-display);">ATUAS</strong>
+      </div>
+      <p style="color:rgba(255,255,255,.65);">Association of Technical University Accountancy Students, ATU. Commitment Is Vital. Website administration led by Team General.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/atuas_atu/profilecard/?igsh=MTRieUV0NnBlMmdkZA==" aria-label="ATUAS on Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://facebook.com/atuas_atu" aria-label="ATUAS on Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V9c0-.5.4-1 1-1z" fill="currentColor"/></svg></a>
+        <a href="https://whatsapp.com/channel/0029VafZnGw3AzNL9wqq4k10" aria-label="ATUAS WhatsApp Channel" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.7-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a href="https://www.tiktok.com/@atuas_insight10.atu" aria-label="ATUAS on TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M15 4v9.5a3.5 3.5 0 11-3-3.46" stroke="currentColor" stroke-width="1.5"/><path d="M15 4c.4 2 2 3.4 4 3.6" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a href="https://x.com/JosephAyo457466" aria-label="ATUAS on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul><li><a href="about.html">About</a></li><li><a href="programmes.html">Academics</a></li><li><a href="past-questions.html">Past Questions</a></li><li><a href="events.html">Events</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+    <div>
+      <h4>Academics</h4>
+      <ul><li><a href="programmes.html">Programmes</a></li><li><a href="courses.html">Courses</a></li><li><a href="past-questions.html">Past Questions</a></li><li><a href="resources.html">Study Materials</a></li></ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul><li><a href="https://www.instagram.com/atuas_atu/profilecard/?igsh=MTRieUV0NnBlMmdkZA==" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://facebook.com/atuas_atu" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://whatsapp.com/channel/0029VafZnGw3AzNL9wqq4k10" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.tiktok.com/@atuas_insight10.atu" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://x.com/JosephAyo457466" target="_blank" rel="noopener">X</a></li></ul>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <span>© <span data-year></span> ATUAS, Accra Technical University. All rights reserved.</span>
+  </div>
+  <div class="dev-credit">
+    <p style="margin:0;color:rgba(255,255,255,.65);">Built by <strong>Ibrahim Mohammed Lotsu</strong>, 0554196068, <a href="https://ibratech.vercel.app" target="_blank" rel="noopener">ibratech.vercel.app</a></p>
+  </div>
+</footer>
+
+<button class="chat-fab" data-chat-fab aria-label="Open ATUAS assistant">
+  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
+    <rect x="5" y="8.5" width="14" height="10.5" rx="3.2" stroke="white" stroke-width="1.6"/>
+    <circle cx="9.4" cy="13.6" r="1.3" fill="white"/>
+    <circle cx="14.6" cy="13.6" r="1.3" fill="white"/>
+    <path d="M9.2 16.6h5.6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M12 8.5V5.4" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="12" cy="4.4" r="1.1" fill="white"/>
+    <path d="M5 12.5H3.2M20.8 12.5H19" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</button>
+<div class="chat-panel" data-chat-panel>
+  <div class="chat-head">
+    <img src="images/logo.jpg" alt="">
+    <strong>ATUAS Assistant</strong>
+    <button data-chat-close aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-quick" data-chat-quick></div>
+  <div class="chat-body" data-chat-body>
+    <div class="chat-msg bot">Hi, ask me about past questions, programmes, events or how to reach ATUAS.</div>
+  </div>
+  <form class="chat-input" data-chat-form>
+    <input type="text" data-chat-input maxlength="300" placeholder="Type your question…" aria-label="Message">
+    <button type="submit" aria-label="Send">Send</button>
+  </form>
+</div>
+
+<a class="whatsapp-fab" data-whatsapp-fab href="https://wa.me/233554196068?text=Hi,%20I%20have%20a%20question%20about%20ATUAS." target="_blank" rel="noopener" aria-label="Chat with the ATUAS PRO on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.7-1.2A9 9 0 1012 3z" stroke="white" stroke-width="1.6"/></svg>
+</a>
+
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/site.js"></script>
+<script src="js/content.js"></script>
+</body>
+</html>

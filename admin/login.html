@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login, ATUAS</title>
+<link rel="icon" href="../images/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+</head>
+<body class="admin-auth-body">
+
+<main class="admin-auth-card">
+  <img src="../images/logo.jpg" alt="ATUAS crest" class="admin-auth-logo">
+  <h1>ATUAS Admin</h1>
+  <p class="admin-auth-sub">Sign in with your association email to manage site content.</p>
+
+  <form id="admin-login-form" novalidate>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" autocomplete="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+    <p id="admin-login-error" class="admin-error" role="alert" hidden></p>
+
+    <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+      <span>Sign in</span>
+    </button>
+  </form>
+
+  <a href="#" id="forgot-link" class="admin-auth-forgot">Forgot password?</a>
+  <a href="../index.html" class="admin-auth-back">← Back to the public site</a>
+</main>
+
+<script src="../js/config.js"></script>
+<script src="../js/supabase.js"></script>
+<script>
+  // Authentication is entirely delegated to Supabase Auth. On success we
+  // redirect to the dashboard; role checks happen there (and are re-verified
+  // server-side by RLS on every query, the frontend check is UX only).
+  document.getElementById("admin-login-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const errorBox = document.getElementById("admin-login-error");
+    errorBox.hidden = true;
+
+    const client = window.ATUAS?.getSupabaseClient?.();
+    if (!client) {
+      errorBox.textContent = "Login is not configured yet. Add your Supabase project details in js/supabase.js.";
+      errorBox.hidden = false;
+      return;
+    }
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    const { error } = await client.auth.signInWithPassword({ email, password });
+    if (error) {
+      errorBox.textContent = "Sign-in failed. Check your email and password and try again.";
+      errorBox.hidden = false;
+      return;
+    }
+    window.location.href = "admin.html";
+  });
+
+  document.getElementById("forgot-link").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const client = window.ATUAS?.getSupabaseClient?.();
+    const email = document.getElementById("email").value.trim();
+    if (!client || !email) {
+      alert("Enter your email above first, then click 'Forgot password?' again.");
+      return;
+    }
+    const { error } = await client.auth.resetPasswordForEmail(email);
+    alert(error ? "Could not send reset email. Try again shortly." : "Password reset email sent.");
+  });
+</script>
+</body>
+</html>

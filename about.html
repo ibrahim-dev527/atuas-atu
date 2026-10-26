@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("atuas-theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About ATUAS, Association of Technical University Accountancy Students</title>
+<meta name="description" content="About ATUAS-ATU: the association of Accountancy students at Accra Technical University, our mission, aims and leadership.">
+<link rel="icon" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER / NAVIGATION ============ -->
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <img src="images/logo.jpg" alt="ATUAS crest">
+      <span>ATUAS<small>Commitment Is Vital</small></span>
+    </a>
+    <div class="nav-backdrop"></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <button type="button">About <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="about.html">About ATUAS</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="constitution.html">Constitution</a></li>
+            <li><a href="executives.html">Executives</a></li>
+            <li><a href="about.html#department">Department</a></li>
+            <li><a href="faculty.html">Faculty &amp; HOD</a></li>
+            <li><a href="about.html#alumni">Alumni</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Academics <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="programmes.html">Programmes</a></li>
+            <li><a href="courses.html">Course Catalogue</a></li>
+            <li><a href="past-questions.html">Past Questions</a></li>
+            <li><a href="resources.html">Study Materials</a></li>
+            <li><a href="resources.html#support">Academic Support</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Students <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="students.html">Student Life</a></li>
+            <li><a href="students.html#freshers">Freshers Guide</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="students.html#calendar">Academic Calendar</a></li>
+            <li><a href="students.html#notices">Important Notices</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Events <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="events.html#past">Past Events</a></li>
+            <li><a href="events.html#atuas-week">ATUAS Week</a></li>
+            <li><a href="events.html#seminars">Seminars</a></li>
+            <li><a href="events.html#excursions">Excursions</a></li>
+            <li><a href="events.html#football-gala">Football Gala</a></li>
+            <li><a href="events.html#dinner">Dinner &amp; Awards</a></li>
+            <li><a href="events.html#movie-nights">Movie Nights</a></li>
+            <li><a href="events.html#freshers">Freshers Orientation</a></li>
+            <li><a href="events.html#company-visits">Company Visits</a></li>
+            <li><a href="events.html#icag">ICAG Events</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Media <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="gallery.html#video">Video Gallery</a></li>
+            <li><a href="face-of-atuas.html">Face of ATUAS</a></li>
+            <li><a href="downloads.html#publications">Publications</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">Opportunities <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="opportunities.html#icag">ICAG Opportunities</a></li>
+            <li><a href="opportunities.html#scholarships">Scholarships</a></li>
+            <li><a href="opportunities.html#internships">Internships</a></li>
+            <li><a href="opportunities.html#jobs">Jobs</a></li>
+            <li><a href="opportunities.html#competitions">Competitions</a></li>
+            <li><a href="opportunities.html#development">Professional Development</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button">News <svg class="caret" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="dropdown">
+            <li><a href="news.html">News</a></li>
+            <li><a href="news.html#articles">Articles</a></li>
+            <li><a href="news.html#announcements">Announcements</a></li>
+            <li><a href="news.html#achievements">Student Achievements</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn--primary btn--sm" href="past-questions.html">
+        <span>Past Questions</span>
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </a>
+      <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="modal-backdrop welcome-modal" data-welcome-modal>
+  <div class="modal">
+    <img src="images/logo.jpg" alt="">
+    <h3 style="margin-top:0;">Welcome to the new ATUAS website</h3>
+    <p style="color:var(--ink-soft);">This is the newly built digital home of ATUAS. Explore past questions, programmes, events and more. Some sections are still being filled in by the executive committee.</p>
+    <button class="btn btn--primary btn--sm" data-welcome-close type="button" style="margin-top:.5rem;"><span>Get started</span></button>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="inner-hero" data-page-carousel>
+    <div class="page-carousel-track">
+      <div class="page-carousel-slide is-active"><img src="images/atu-entrance.jpg" alt="ATU Entrance" loading="lazy"></div>
+      <div class="page-carousel-slide"><img src="images/auditorium.jpg" alt="ATU Auditorium" loading="lazy"></div>
+      <div class="page-carousel-slide"><img src="images/library.jpg" alt="ATU Library" loading="lazy"></div>
+    </div>
+    <div class="container inner-hero-content">
+      <span class="kicker">About</span>
+      <h1 style="font-size:var(--step-3);">About ATUAS</h1>
+      <p style="max-width:62ch;">The home of Accountancy students at Accra Technical University (ATU), and the ATU chapter of the national ATUAS body.</p>
+    </div>
+    <div class="page-carousel-dots"></div>
+  </section>
+
+  <!-- ============ ATU CHAPTER INTRO ============ -->
+  <section class="section" style="padding-top:1rem;" id="atu-chapter">
+    <div class="container grid-2">
+      <div class="reveal">
+        <span class="kicker">ATUAS at ATU</span>
+        <h2>Accountancy students of Accra Technical University, united.</h2>
+        <p data-content-text="about_atu_intro_1">ATUAS-ATU is the student association of the Accountancy Department at Accra Technical University. It brings HND, BTech and Diploma-to-BTech students together under one roof, and speaks for them on campus and beyond.</p>
+        <p data-content-text="about_atu_intro_2">Led by an elected executive, the association runs academic support, career events, quiz and competition teams, and the traditions that make department life memorable, all under the motto <strong>Commitment Is Vital</strong>.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="font-size:1.05rem;">At a glance</h3>
+        <p style="margin:0;">Home institution: Accra Technical University<br>Motto: Commitment Is Vital<br>Who we serve: every Accountancy student in the department<br>Affiliation: national ATUAS body (ATUAS-GH)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NATIONAL OVERVIEW ============ -->
+  <section class="section" style="padding-top:1rem;" id="department">
+    <div class="container grid-2">
+      <div class="reveal">
+        <span class="kicker">The Wider Family</span>
+        <h2>ATU is part of a national body.</h2>
+        <p>The Association of Technical University Accountancy Students (ATUAS) is a professional and academic student organization operating across technical universities in Ghana, representing students pursuing HND and degree programmes in Accountancy.</p>
+        <p>ATUAS bridges classroom theory and industry practice through seminars, career guidance workshops and educational tours, run in partnership with professional bodies including the Institute of Chartered Accountants, Ghana (ICAG) and the Association of Chartered Certified Accountants (ACCA). It serves as a platform for networking, peer support and academic advocacy for future finance and audit professionals.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="font-size:1.05rem;">Chapters &amp; leadership</h3>
+        <p>ATUAS operates through autonomous local chapters at member institutions, including Accra Technical University (ATU) and Koforidua Technical University (KTU), aligned with each institution's faculty.</p>
+        <p style="margin:0;">Each chapter is run by elected student executives, presidents, financial officers, public relations officers and others, who organize annual hand-over ceremonies, general assemblies and student welfare programmes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISSION / VISION / VALUES ============ -->
+  <section class="section section--navy" id="mission">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker" style="color:var(--gold);">The ATU Chapter</span>
+        <h2>Mission, vision &amp; values</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8);">
+          <h3 style="font-size:1.05rem;color:var(--white);">Mission</h3>
+          <p style="color:rgba(255,255,255,.72);margin:0;" data-content-text="about_mission">To unite and serve every Accountancy student at Accra Technical University by promoting academic excellence, professional growth and student welfare, and by representing the department with integrity within the SRC, ATUAS-GH and the wider academic community.</p>
+        </div>
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);">
+          <h3 style="font-size:1.05rem;color:var(--white);">Vision</h3>
+          <p style="color:rgba(255,255,255,.72);margin:0;" data-content-text="about_vision">To be the leading Accountancy students' association among Ghana's technical universities, producing disciplined, ethical and industry-ready accountants who carry the name of ATU with pride.</p>
+        </div>
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);">
+          <h3 style="font-size:1.05rem;color:var(--white);">Motto</h3>
+          <p style="color:rgba(255,255,255,.72);margin:0;">"Commitment Is Vital", guiding every programme, event and decision the association makes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AIMS & OBJECTIVES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Aims &amp; Objectives</span>
+        <h2>What the Local Chapter aims to do.</h2>
+      </div>
+      <ol style="display:grid;gap:1rem;padding-left:1.3rem;max-width:70ch;color:var(--ink-soft);">
+        <li><strong style="color:var(--navy);">Unify every student in the department</strong>, HND, BTech and Diploma students advancing to BTech alike.</li>
+        <li><strong style="color:var(--navy);">Create awareness of Accountancy programmes</strong> locally and internationally, as guided by ATUAS-GH and the SRC.</li>
+        <li><strong style="color:var(--navy);">Educate members on modern Accountancy practices and technologies</strong> through events and programmes run in partnership with ATUAS-GH and industry experts.</li>
+        <li><strong style="color:var(--navy);">Advocate for the academic and social welfare</strong> of all students.</li>
+        <li><strong style="color:var(--navy);">Serve as the department's official mouthpiece</strong> within the SRC, ATUAS National, and the broader academic community.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ ALUMNI ============ -->
+  <section class="section section--paper" id="alumni">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Alumni</span>
+        <h2>Our luminaries.</h2>
+      </div>
+      <div class="grid-2">
+        <div class="reveal">
+          <p data-content-text="alumni_p1">Every great department is measured by the people it sends out into the world. The alumni of ATUAS are our luminaries: graduates who walked the same corridors, sat the same papers and led the same association, and who now shine in audit firms, banks, public institutions, businesses and further studies.</p>
+          <p data-content-text="alumni_p2">They matter to the department in three ways. They prove that an Accountancy education at ATU leads somewhere. They open doors, through internships, referrals and professional advice. And they set the standard that today's students and executives are proud to follow.</p>
+          <p data-content-text="alumni_p3">If you are an ATUAS alumnus or alumna, we want to hear from you. Mentor a student, speak at an event, or simply stay connected.</p>
+          <a class="btn btn--primary" href="contact.html"><span>Stay connected</span></a>
+        </div>
+        <div class="card-grid" style="grid-template-columns:1fr;">
+          <div class="card reveal"><h3 style="font-size:1.05rem;">Mentorship</h3><p style="margin:0;">Alumni guide students on exams, professional bodies such as ICAG and ACCA, and early-career choices.</p></div>
+          <div class="card reveal"><h3 style="font-size:1.05rem;">Industry doors</h3><p style="margin:0;">Internships, company visits and job leads often begin with an alumnus who remembers where they started.</p></div>
+          <div class="card reveal"><h3 style="font-size:1.05rem;">Living example</h3><p style="margin:0;">Their journeys show current students what Commitment Is Vital looks like after graduation.</p></div>
+        </div>
+      </div>
+      <div class="tbsc-gallery" style="margin-top:2rem;">
+        <figure class="reveal"><div class="exec-photo"><img src="images/alumni-1.jpg" data-content-img="alumni_img_1" alt="ATUAS alumni" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>Alumni</span>'"></div></figure>
+        <figure class="reveal"><div class="exec-photo"><img src="images/alumni-2.jpg" data-content-img="alumni_img_2" alt="ATUAS alumni event" onerror="this.parentElement.innerHTML='<span class=&quot;placeholder&quot;>Alumni</span>'"></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="container" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn--primary" href="executives.html"><span>Meet the executives</span></a>
+      <a class="btn btn--outline" href="constitution.html"><span>Read the constitution</span></a>
+    </div>
+  </section>
+
+  <div class="container" style="text-align:center;padding-bottom:2rem;">
+    <a href="admin/login.html" style="font-size:.78rem;color:var(--ink-soft);">Admin</a>
+  </div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="images/logo.jpg" alt="ATUAS crest">
+        <strong style="color:var(--white);font-family:var(--font-display);">ATUAS</strong>
+      </div>
+      <p style="color:rgba(255,255,255,.65);">Association of Technical University Accountancy Students, ATU. Commitment Is Vital. Website administration led by Team General.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/atuas_atu/profilecard/?igsh=MTRieUV0NnBlMmdkZA==" aria-label="ATUAS on Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://facebook.com/atuas_atu" aria-label="ATUAS on Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V9c0-.5.4-1 1-1z" fill="currentColor"/></svg></a>
+        <a href="https://whatsapp.com/channel/0029VafZnGw3AzNL9wqq4k10" aria-label="ATUAS WhatsApp Channel" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.7-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a href="https://www.tiktok.com/@atuas_insight10.atu" aria-label="ATUAS on TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M15 4v9.5a3.5 3.5 0 11-3-3.46" stroke="currentColor" stroke-width="1.5"/><path d="M15 4c.4 2 2 3.4 4 3.6" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a href="https://x.com/JosephAyo457466" aria-label="ATUAS on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul><li><a href="about.html">About</a></li><li><a href="programmes.html">Academics</a></li><li><a href="past-questions.html">Past Questions</a></li><li><a href="events.html">Events</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+    <div>
+      <h4>Academics</h4>
+      <ul><li><a href="programmes.html">Programmes</a></li><li><a href="courses.html">Courses</a></li><li><a href="past-questions.html">Past Questions</a></li><li><a href="resources.html">Study Materials</a></li></ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul><li><a href="https://www.instagram.com/atuas_atu/profilecard/?igsh=MTRieUV0NnBlMmdkZA==" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://facebook.com/atuas_atu" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://whatsapp.com/channel/0029VafZnGw3AzNL9wqq4k10" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.tiktok.com/@atuas_insight10.atu" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://x.com/JosephAyo457466" target="_blank" rel="noopener">X</a></li></ul>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <span>© <span data-year></span> ATUAS, Accra Technical University. All rights reserved.</span>
+  </div>
+  <div class="dev-credit">
+    <p style="margin:0;color:rgba(255,255,255,.65);">Built by <strong>Ibrahim Mohammed Lotsu</strong>, 0554196068, <a href="https://ibratech.vercel.app" target="_blank" rel="noopener">ibratech.vercel.app</a></p>
+  </div>
+</footer>
+
+<button class="chat-fab" data-chat-fab aria-label="Open ATUAS assistant">
+  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
+    <rect x="5" y="8.5" width="14" height="10.5" rx="3.2" stroke="white" stroke-width="1.6"/>
+    <circle cx="9.4" cy="13.6" r="1.3" fill="white"/>
+    <circle cx="14.6" cy="13.6" r="1.3" fill="white"/>
+    <path d="M9.2 16.6h5.6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M12 8.5V5.4" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="12" cy="4.4" r="1.1" fill="white"/>
+    <path d="M5 12.5H3.2M20.8 12.5H19" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</button>
+<div class="chat-panel" data-chat-panel>
+  <div class="chat-head">
+    <img src="images/logo.jpg" alt="">
+    <strong>ATUAS Assistant</strong>
+    <button data-chat-close aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-quick" data-chat-quick></div>
+  <div class="chat-body" data-chat-body>
+    <div class="chat-msg bot">Hi, ask me about past questions, programmes, events or how to reach ATUAS.</div>
+  </div>
+  <form class="chat-input" data-chat-form>
+    <input type="text" data-chat-input maxlength="300" placeholder="Type your question…" aria-label="Message">
+    <button type="submit" aria-label="Send">Send</button>
+  </form>
+</div>
+
+<a class="whatsapp-fab" data-whatsapp-fab href="https://wa.me/233554196068?text=Hi,%20I%20have%20a%20question%20about%20ATUAS." target="_blank" rel="noopener" aria-label="Chat with the ATUAS PRO on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.7-1.2A9 9 0 1012 3z" stroke="white" stroke-width="1.6"/></svg>
+</a>
+
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/site.js"></script>
+<script src="js/content.js"></script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATUAS Admin</title>
+<link rel="icon" href="../images/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="brand"><img src="../images/logo.jpg" alt="" style="height:32px;width:32px;border-radius:50%;"><span>ATUAS Admin</span></div>
+    <a href="#dashboard" data-admin-tab="dashboard">Dashboard</a>
+    <a href="#analytics" data-admin-tab="analytics">Analytics</a>
+    <a href="#content" data-admin-tab="content">Page Content</a>
+    <a href="#past-questions" data-admin-tab="past-questions">Past Questions</a>
+    <a href="#resources" data-admin-tab="resources">Resources</a>
+    <a href="#events" data-admin-tab="events">Events</a>
+    <a href="#news" data-admin-tab="news">News</a>
+    <a href="#gallery" data-admin-tab="gallery">Gallery</a>
+    <a href="#executives" data-admin-tab="executives">Executives</a>
+    <a href="#faculty" data-admin-tab="faculty">Faculty</a>
+    <a href="#face" data-admin-tab="face">Face of ATUAS</a>
+    <a href="#messages" data-admin-tab="messages">Messages</a>
+    <a href="#opportunities" data-admin-tab="opportunities">Opportunities</a>
+    <a href="#announcements" data-admin-tab="announcements">Announcements</a>
+    <a href="#chatbot" data-admin-tab="chatbot">Chatbot</a>
+    <a href="#settings" data-admin-tab="settings">Settings</a>
+    <button class="logout" data-admin-logout type="button" style="background:none;border:none;text-align:left;cursor:pointer;">Logout</button>
+  </aside>
+
+  <div class="admin-main">
+
+    <!-- ============ DASHBOARD ============ -->
+    <section data-admin-view="dashboard">
+      <div class="admin-topbar">
+        <div>
+          <h1 style="font-size:1.5rem;margin:0;">Dashboard</h1>
+          <p style="margin:.2rem 0 0;font-size:.88rem;">Signed in as <strong data-admin-name>—</strong> · <span data-admin-role style="text-transform:capitalize;"></span></p>
+        </div>
+      </div>
+      <div class="admin-stat-grid">
+        <div class="admin-stat"><b data-stat="past_questions">—</b><span>Past Questions</span></div>
+        <div class="admin-stat"><b data-stat="resources">—</b><span>Resources</span></div>
+        <div class="admin-stat"><b data-stat="events">—</b><span>Upcoming Events</span></div>
+        <div class="admin-stat"><b data-stat="blog_posts">—</b><span>Published News</span></div>
+        <div class="admin-stat"><b data-stat="gallery_images">—</b><span>Gallery Images</span></div>
+        <div class="admin-stat"><b data-stat="executives">—</b><span>Executives</span></div>
+        <div class="admin-stat"><b data-stat="opportunities">—</b><span>Open Opportunities</span></div>
+        <div class="admin-stat"><b data-stat="chatbot_unanswered">—</b><span>Unanswered Questions</span></div>
+      </div>
+      <h2 style="font-size:1.1rem;">Recent activity</h2>
+      <table class="admin-table">
+        <thead><tr><th>Action</th><th>Resource</th><th>When</th></tr></thead>
+        <tbody data-dashboard-audit><tr><td colspan="3">Loading…</td></tr></tbody>
+      </table>
+    </section>
+
+    <!-- ============ ANALYTICS ============ -->
+    <section data-admin-view="analytics" hidden>
+      <div class="admin-topbar"><h1 style="font-size:1.5rem;margin:0;">Analytics</h1></div>
+      <div class="an-controls">
+        <label style="font-size:.85rem;font-weight:700;color:var(--navy);">Month <input type="month" data-an-month style="padding:.5em;border:1.5px solid var(--line);border-radius:var(--radius-s);margin-left:.4rem;"></label>
+        <span style="font-size:.8rem;color:var(--ink-soft);">Visitors are counted per browser, by Ghana time.</span>
+      </div>
+      <div class="admin-stat-grid">
+        <div class="admin-stat"><b data-an-visitors>-</b><span>Visitors this month</span></div>
+        <div class="admin-stat"><b data-an-views>-</b><span>Page views this month</span></div>
+        <div class="admin-stat"><b data-an-day-visitors>-</b><span data-an-day-label>Tap a date</span></div>
+        <div class="admin-stat"><b data-an-day-views>-</b><span>Page views that day</span></div>
+      </div>
+      <div class="cal-grid" data-an-cal></div>
+      <h2 style="font-size:1.1rem;" data-an-pages-title>Most visited pages this month</h2>
+      <div data-an-pages></div>
+    </section>
+
+    <!-- ============ PAGE CONTENT ============ -->
+    <section data-admin-view="content" hidden>
+      <div class="admin-topbar"><h1 style="font-size:1.5rem;margin:0;">Page Content</h1></div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Edit text and images shown on the public pages. Leave a field blank to keep the built-in version. Separate paragraphs with a blank line.</p>
+      <form data-content-form style="display:grid;gap:1.4rem;max-width:760px;"></form>
+      <p data-content-status style="font-size:.85rem;"></p>
+    </section>
+
+    <!-- ============ FACULTY ============ -->
+    <section data-admin-view="faculty" hidden>
+      <div class="admin-topbar"><h1 style="font-size:1.5rem;margin:0;">Faculty &amp; HOD</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="faculty" type="button"><span>New Member</span></button></div>
+      <table class="admin-table"><thead><tr><th>Name</th><th>Title</th><th>Order</th><th></th></tr></thead><tbody data-admin-table="faculty"></tbody></table>
+    </section>
+
+    <!-- ============ FACE OF ATUAS ============ -->
+    <section data-admin-view="face" hidden>
+      <div class="admin-topbar"><h1 style="font-size:1.5rem;margin:0;">Face of ATUAS</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="face" type="button"><span>New Honouree</span></button></div>
+      <table class="admin-table"><thead><tr><th>Name</th><th>Year</th><th>Status</th><th></th></tr></thead><tbody data-admin-table="face"></tbody></table>
+    </section>
+
+    <!-- ============ MESSAGES ============ -->
+    <section data-admin-view="messages" hidden>
+      <div class="admin-topbar"><h1 style="font-size:1.5rem;margin:0;">Contact Messages</h1></div>
+      <table class="admin-table"><thead><tr><th>From</th><th>Message</th><th>Received</th><th></th></tr></thead><tbody data-messages-body></tbody></table>
+    </section>
+
+    <!-- ============ PAST QUESTIONS ============ -->
+    <section data-admin-view="past-questions" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Past Questions</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="past-questions" type="button"><span>New Past Question</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);max-width:70ch;">Upload the PDF directly, or paste a path if it's already in storage. Only published entries appear in the public Past Question Bank.</p>
+      <table class="admin-table">
+        <thead><tr><th>Course</th><th>Programme / Level / Semester</th><th>Year</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="past-questions"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ RESOURCES ============ -->
+    <section data-admin-view="resources" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Resources</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="resources" type="button"><span>New Resource</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Anything tagged "Downloads" also appears on the public Downloads page.</p>
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Category</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="resources"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ EVENTS ============ -->
+    <section data-admin-view="events" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Events</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="events" type="button"><span>New Event</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Category should match one of: ATUAS Week, Seminar, Excursion, Football Gala, Dinner & Awards, Movie Night, Freshers Orientation, Company Visit, ICAG Event.</p>
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Category</th><th>Starts</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="events"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ NEWS ============ -->
+    <section data-admin-view="news" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">News &amp; Articles</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="news" type="button"><span>New Article</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Slug becomes the article URL: <code>article.html?slug=your-slug</code>.</p>
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Slug</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="news"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section data-admin-view="gallery" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Gallery</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="gallery" type="button"><span>New Image</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Category must match a tab on the public Gallery page (Campus, ATUAS Week, TBSC, Football Gala, and so on) via the linked album.</p>
+      <table class="admin-table">
+        <thead><tr><th>Preview</th><th>Caption</th><th>Category</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="gallery"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ EXECUTIVES ============ -->
+    <section data-admin-view="executives" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Executives</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="executives" type="button"><span>New Executive</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Phone numbers are stored but only shown publicly if "Show phone" is checked, off by default to protect privacy.</p>
+      <table class="admin-table">
+        <thead><tr><th>Name</th><th>Position</th><th>Order</th><th></th></tr></thead>
+        <tbody data-admin-table="executives"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ OPPORTUNITIES ============ -->
+    <section data-admin-view="opportunities" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Opportunities</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="opportunities" type="button"><span>New Opportunity</span></button>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Set status to "Archived" once expired; the public page also hides anything past its deadline automatically.</p>
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Category</th><th>Deadline</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="opportunities"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ ANNOUNCEMENTS ============ -->
+    <section data-admin-view="announcements" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Announcements</h1>
+        <button class="btn btn--primary btn--sm" data-admin-add="announcements" type="button"><span>New Announcement</span></button>
+      </div>
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Priority</th><th>Status</th><th></th></tr></thead>
+        <tbody data-admin-table="announcements"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ CHATBOT ============ -->
+    <section data-admin-view="chatbot" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Chatbot</h1>
+      </div>
+
+      <h2 style="font-size:1.05rem;">Unanswered questions</h2>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Questions visitors asked that the chatbot couldn't match. Type an answer to add it to the chatbot's knowledge straight away.</p>
+      <div style="display:grid;gap:.9rem;margin-bottom:2.5rem;" data-unanswered-list>
+        <div class="card">Loading…</div>
+      </div>
+
+      <h2 style="font-size:1.05rem;">Answer library</h2>
+      <div class="admin-topbar">
+        <p style="font-size:.85rem;color:var(--ink-soft);margin:0;max-width:60ch;">Every answer the chatbot can give, including the ones seeded from the constitution. Keywords are comma separated and matched if any of them appear in the visitor's question.</p>
+        <button class="btn btn--primary btn--sm" data-admin-add="chatbot-qa" type="button"><span>New Answer</span></button>
+      </div>
+      <table class="admin-table">
+        <thead><tr><th>Keywords</th><th>Answer</th><th></th></tr></thead>
+        <tbody data-admin-table="chatbot-qa"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <section data-admin-view="settings" hidden>
+      <div class="admin-topbar">
+        <h1 style="font-size:1.5rem;margin:0;">Settings</h1>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-soft);">Restricted to Super Admin, enforced by the RLS policy on <code>site_settings</code>, not just this page.</p>
+
+      <div class="card" style="max-width:640px;margin-top:1rem;">
+        <h3 style="font-size:1.05rem;">Constitution document</h3>
+        <p style="font-size:.85rem;color:var(--ink-soft);">Sets the download link shown on the public Constitution page.</p>
+        <form data-settings-form style="display:grid;gap:.8rem;">
+          <label style="font-size:.85rem;font-weight:700;color:var(--navy);">
+            Upload PDF (or paste a path directly below)
+            <input type="file" accept=".pdf" data-constitution-file style="width:100%;margin-top:.3rem;margin-bottom:.5rem;">
+            <input type="text" name="constitution_path" placeholder="File path" style="width:100%;padding:.7em;border:1.5px solid var(--line);border-radius:var(--radius-s);">
+          </label>
+          <button type="submit" class="btn btn--primary btn--sm" style="justify-self:start;"><span>Save</span></button>
+          <p data-settings-status style="font-size:.85rem;margin:0;"></p>
+        </form>
+      </div>
+
+      <div class="card" style="max-width:640px;margin-top:1.5rem;">
+        <h3 style="font-size:1.05rem;">Manage admin roles</h3>
+        <p style="font-size:.85rem;color:var(--ink-soft);">To grant or change an admin's role, update the <code>role</code> column on their row in the <code>profiles</code> table directly in the Supabase dashboard (Table Editor, profiles). This keeps role changes auditable and out of reach of a compromised browser session.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="../js/config.js"></script>
+<script src="../js/supabase.js"></script>
+<script src="admin.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const auth = await window.AdminCRUD.requireAuth();
+    if (!auth) return;
+    window.AdminCRUD.initLogout();
+
+    async function initDashboard() {
+      const client = window.ATUAS?.getSupabaseClient?.();
+      if (!client) return;
+      const statTables = {
+        past_questions: ["past_questions", [["published", "eq", true]]],
+        resources: ["resources", [["published", "eq", true]]],
+        events: ["events", [["published", "eq", true]]],
+        blog_posts: ["blog_posts", [["status", "eq", "published"]]],
+        gallery_images: ["gallery_images", [["published", "eq", true]]],
+        executives: ["executives", []],
+        opportunities: ["opportunities", [["status", "eq", "active"]]],
+        chatbot_unanswered: ["chatbot_unanswered", [["status", "eq", "open"]]],
+      };
+      for (const [key, [table, filters]] of Object.entries(statTables)) {
+        let query = client.from(table).select("*", { count: "exact", head: true });
+        filters.forEach(([col, op, val]) => { query = query[op](col, val); });
+        const { count } = await query;
+        const el = document.querySelector(`[data-stat="${key}"]`);
+        if (el) el.textContent = count ?? "0";
+      }
+      const { data: logs } = await client.from("audit_logs").select("action, resource_type, created_at").order("created_at", { ascending: false }).limit(10);
+      const tbody = document.querySelector("[data-dashboard-audit]");
+      tbody.innerHTML = logs && logs.length
+        ? logs.map((l) => `<tr><td>${l.action}</td><td>${l.resource_type}</td><td>${new Date(l.created_at).toLocaleString()}</td></tr>`).join("")
+        : `<tr><td colspan="3">No activity recorded yet.</td></tr>`;
+    }
+
+    function initPastQuestions() {
+      window.AdminCRUD.init({
+        table: "past_questions", title: "Past Question",
+        tableSelector: '[data-admin-table="past-questions"]', addButtonSelector: '[data-admin-add="past-questions"]',
+        select: "*", order: { column: "created_at", ascending: false },
+        columns: [
+          { key: "course_code", render: (r) => `<strong>${r.course_code}</strong><br><span style="font-size:.8rem;color:var(--ink-soft);">${r.course_title}</span>` },
+          { render: (r) => `Level ${r.level ?? "—"} · Sem ${r.semester ?? "—"}` },
+          { key: "academic_year" },
+          { render: (r) => `<span class="admin-badge ${r.published ? "published" : "draft"}">${r.published ? "Published" : "Draft"}</span>` },
+        ],
+        fields: [
+          { key: "course_code", label: "Course code", type: "text" },
+          { key: "course_title", label: "Course title", type: "text" },
+          { key: "level", label: "Level", type: "number" },
+          { key: "semester", label: "Semester", type: "select", options: [{value:1,label:"Semester 1"},{value:2,label:"Semester 2"}] },
+          { key: "academic_year", label: "Academic year (e.g. 2024/2025)", type: "text" },
+          { key: "file_path", label: "Past question PDF", type: "file", bucket: "past-questions", accept: ".pdf" },
+          { key: "description", label: "Description (optional)", type: "textarea" },
+          { key: "published", label: "Published", type: "checkbox", default: false },
+        ],
+      });
+    }
+
+    function initResources() {
+      window.AdminCRUD.init({
+        table: "resources", title: "Resource",
+        tableSelector: '[data-admin-table="resources"]', addButtonSelector: '[data-admin-add="resources"]',
+        order: { column: "created_at", ascending: false },
+        columns: [
+          { key: "title" }, { key: "category" },
+          { render: (r) => `<span class="admin-badge ${r.published ? "published" : "draft"}">${r.published ? "Published" : "Draft"}</span>` },
+        ],
+        fields: [
+          { key: "title", label: "Title", type: "text" },
+          { key: "category", label: "Category (e.g. Downloads, Notes, Slides)", type: "text" },
+          { key: "description", label: "Description", type: "textarea" },
+          { key: "file_path", label: "Resource file", type: "file", bucket: "academic-resources", accept: ".pdf,.doc,.docx,.ppt,.pptx" },
+          { key: "published", label: "Published", type: "checkbox", default: false },
+        ],
+      });
+    }
+
+    function initEvents() {
+      window.AdminCRUD.init({
+        table: "events", title: "Event",
+        tableSelector: '[data-admin-table="events"]', addButtonSelector: '[data-admin-add="events"]',
+        order: { column: "starts_at", ascending: false },
+        columns: [
+          { key: "title" }, { key: "category" },
+          { render: (r) => r.starts_at ? new Date(r.starts_at).toLocaleString() : "—" },
+          { render: (r) => `<span class="admin-badge ${r.published ? "published" : "draft"}">${r.published ? "Published" : "Draft"}</span>` },
+        ],
+        fields: [
+          { key: "title", label: "Title", type: "text" },
+          { key: "category", label: "Category", type: "text" },
+          { key: "description", label: "Description", type: "textarea" },
+          { key: "location", label: "Location", type: "text" },
+          { key: "starts_at", label: "Starts at", type: "datetime-local" },
+          { key: "ends_at", label: "Ends at", type: "datetime-local" },
+          { key: "poster_path", label: "Poster image", type: "image", bucket: "event-posters" },
+          { key: "published", label: "Published", type: "checkbox", default: false },
+        ],
+      });
+    }
+
+    function initNews() {
+      window.AdminCRUD.init({
+        table: "blog_posts", title: "Article",
+        tableSelector: '[data-admin-table="news"]', addButtonSelector: '[data-admin-add="news"]',
+        order: { column: "created_at", ascending: false },
+        columns: [
+          { key: "title" }, { key: "slug" },
+          { render: (r) => `<span class="admin-badge ${r.status === "published" ? "published" : "draft"}">${r.status}</span>` },
+        ],
+        fields: [
+          { key: "title", label: "Title", type: "text" },
+          { key: "slug", label: "Slug (url-friendly)", type: "text" },
+          { key: "content", label: "Content", type: "textarea" },
+          { key: "featured_image", label: "Featured image", type: "image", bucket: "blog-images" },
+          { key: "status", label: "Status", type: "select", options: [{value:"draft",label:"Draft"},{value:"published",label:"Published"}], default: "draft" },
+        ],
+        beforeSave: (payload) => (payload.status === "published" ? { published_at: new Date().toISOString() } : {}),
+      });
+    }
+
+    function initGallery() {
+      window.AdminCRUD.init({
+        table: "gallery_images", title: "Image",
+        tableSelector: '[data-admin-table="gallery"]', addButtonSelector: '[data-admin-add="gallery"]',
+        select: "*, gallery_albums(category)", order: { column: "created_at", ascending: false },
+        columns: [
+          { render: (r) => r.image_path ? `<img src="${r.image_path}" alt="" style="width:56px;height:56px;object-fit:cover;border-radius:6px;">` : "—" },
+          { key: "caption" },
+          { render: (r) => r.gallery_albums?.category || "—" },
+          { render: (r) => `<span class="admin-badge ${r.published ? "published" : "draft"}">${r.published ? "Published" : "Draft"}</span>` },
+        ],
+        fields: [
+          { key: "image_path", label: "Image", type: "image", bucket: "gallery" },
+          { key: "caption", label: "Caption", type: "text" },
+          { key: "album_id", label: "Album ID (from gallery_albums table)", type: "text" },
+          { key: "published", label: "Published", type: "checkbox", default: true },
+        ],
+      });
+    }
+
+    function initExecutives() {
+      window.AdminCRUD.init({
+        table: "executives", title: "Executive",
+        tableSelector: '[data-admin-table="executives"]', addButtonSelector: '[data-admin-add="executives"]',
+        order: { column: "sort_order", ascending: true },
+        columns: [{ key: "name" }, { key: "position" }, { key: "sort_order" }],
+        fields: [
+          { key: "name", label: "Full name", type: "text" },
+          { key: "position", label: "Position", type: "text" },
+          { key: "photo_path", label: "Photo", type: "image", bucket: "executive-photos" },
+          { key: "bio", label: "Short bio", type: "textarea" },
+          { key: "phone", label: "Phone", type: "text" },
+          { key: "show_phone", label: "Show phone publicly", type: "checkbox", default: false },
+          { key: "sort_order", label: "Display order (lower = first)", type: "number", default: 0 },
+        ],
+      });
+    }
+
+    function initOpportunities() {
+      window.AdminCRUD.init({
+        table: "opportunities", title: "Opportunity",
+        tableSelector: '[data-admin-table="opportunities"]', addButtonSelector: '[data-admin-add="opportunities"]',
+        order: { column: "date_posted", ascending: false },
+        columns: [
+          { key: "title" }, { key: "category" },
+          { render: (r) => r.deadline ? new Date(r.deadline).toLocaleDateString() : "—" },
+          { render: (r) => `<span class="admin-badge ${r.status === "active" ? "published" : "draft"}">${r.status}</span>` },
+        ],
+        fields: [
+          { key: "title", label: "Title", type: "text" },
+          { key: "organization", label: "Organization", type: "text" },
+          { key: "description", label: "Description", type: "textarea" },
+          { key: "eligibility", label: "Eligibility", type: "text" },
+          { key: "deadline", label: "Deadline", type: "date" },
+          { key: "application_url", label: "Application URL", type: "text" },
+          { key: "category", label: "Category (ICAG, Scholarship, Internship, Job, Competition)", type: "text" },
+          { key: "status", label: "Status", type: "select", options: [{value:"active",label:"Active"},{value:"archived",label:"Archived"}], default: "active" },
+        ],
+      });
+    }
+
+    function initAnnouncements() {
+      window.AdminCRUD.init({
+        table: "announcements", title: "Announcement",
+        tableSelector: '[data-admin-table="announcements"]', addButtonSelector: '[data-admin-add="announcements"]',
+        order: { column: "created_at", ascending: false },
+        columns: [
+          { key: "title" }, { key: "priority" },
+          { render: (r) => `<span class="admin-badge ${r.status === "published" ? "published" : "draft"}">${r.status}</span>` },
+        ],
+        fields: [
+          { key: "title", label: "Title", type: "text" },
+          { key: "description", label: "Description", type: "textarea" },
+          { key: "priority", label: "Priority", type: "select", options: [{value:"normal",label:"Normal"},{value:"high",label:"High"},{value:"urgent",label:"Urgent"}], default: "normal" },
+          { key: "status", label: "Status", type: "select", options: [{value:"draft",label:"Draft"},{value:"published",label:"Published"}], default: "draft" },
+        ],
+      });
+    }
+
+    async function loadUnanswered() {
+      const client = window.ATUAS.getSupabaseClient();
+      const wrap = document.querySelector("[data-unanswered-list]");
+      const { data, error } = await client.from("chatbot_unanswered").select("*").eq("status", "open").order("created_at", { ascending: false });
+      if (error) { wrap.innerHTML = `<div class="card">Couldn't load: ${window.AdminCRUD.escapeHtml(error.message)}</div>`; return; }
+      if (!data.length) { wrap.innerHTML = `<div class="card">No unanswered questions right now.</div>`; return; }
+      wrap.innerHTML = data.map((q) => `
+        <div class="card" data-unanswered-id="${q.id}">
+          <p style="margin:0 0 .6rem;font-weight:700;color:var(--navy);">"${window.AdminCRUD.escapeHtml(q.question)}"</p>
+          <p style="margin:0 0 .6rem;font-size:.78rem;color:var(--ink-soft);">Asked ${new Date(q.created_at).toLocaleString()}</p>
+          <textarea data-answer-text rows="2" placeholder="Type the answer…" style="width:100%;padding:.6em;border:1.5px solid var(--line);border-radius:var(--radius-s);margin-bottom:.5rem;"></textarea>
+          <input type="text" data-answer-keywords placeholder="Keywords for matching this question in future (comma separated)" style="width:100%;padding:.6em;border:1.5px solid var(--line);border-radius:var(--radius-s);margin-bottom:.6rem;">
+          <button type="button" class="btn btn--primary btn--sm" data-answer-save><span>Save Answer</span></button>
+        </div>
+      `).join("");
+
+      wrap.querySelectorAll("[data-answer-save]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const card = btn.closest("[data-unanswered-id]");
+          const id = card.dataset.unansweredId;
+          const answer = card.querySelector("[data-answer-text]").value.trim();
+          const keywordsRaw = card.querySelector("[data-answer-keywords]").value.trim();
+          if (!answer || !keywordsRaw) { alert("Please fill in both the answer and at least one keyword."); return; }
+          const keywords = keywordsRaw.split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
+          btn.disabled = true;
+          const { error: qaError } = await client.from("chatbot_qa").insert({ keywords, answer });
+          if (qaError) { alert("Save failed: " + qaError.message); btn.disabled = false; return; }
+          await client.from("chatbot_unanswered").update({ status: "answered", answer, answered_at: new Date().toISOString() }).eq("id", id);
+          await window.AdminCRUD.logAudit("answered_chatbot_question", "chatbot_unanswered", id, { answer });
+          loadUnanswered();
+        });
+      });
+    }
+
+    function initChatbotQA() {
+      window.AdminCRUD.init({
+        table: "chatbot_qa", title: "Answer",
+        tableSelector: '[data-admin-table="chatbot-qa"]', addButtonSelector: '[data-admin-add="chatbot-qa"]',
+        order: { column: "created_at", ascending: false },
+        columns: [
+          { render: (r) => (r.keywords || []).join(", ") },
+          { render: (r) => (r.answer || "").slice(0, 80) + ((r.answer || "").length > 80 ? "…" : "") },
+        ],
+        fields: [
+          { key: "keywords", label: "Keywords (comma separated)", type: "taglist" },
+          { key: "answer", label: "Answer", type: "textarea" },
+          { key: "link", label: "Link page (optional, e.g. constitution.html)", type: "text" },
+          { key: "label", label: "Link button text (optional)", type: "text" },
+        ],
+      });
+    }
+
+    function initChatbotTab() {
+      loadUnanswered();
+      initChatbotQA();
+    }
+
+    function initSettings() {
+      const client = window.ATUAS.getSupabaseClient();
+      const form = document.querySelector("[data-settings-form]");
+      const status = document.querySelector("[data-settings-status]");
+      const input = form.querySelector("[name=constitution_path]");
+
+      client.from("site_settings").select("value").eq("key", "constitution_document").maybeSingle().then(({ data }) => {
+        if (data?.value?.file_path) input.value = data.value.file_path;
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fileInput = form.querySelector("[data-constitution-file]");
+        const file = fileInput.files?.[0];
+        if (file) {
+          if (file.size > 50 * 1024 * 1024) { status.textContent = "File is over the 50MB limit."; return; }
+          const path = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "")}`;
+          const { data: uploaded, error: uploadError } = await client.storage.from("documents").upload(path, file);
+          if (uploadError) { status.textContent = "Upload failed: " + uploadError.message; return; }
+          input.value = `documents:${uploaded.path}`;
+        }
+        const { error } = await client.from("site_settings").upsert({ key: "constitution_document", value: { file_path: input.value } });
+        status.textContent = error ? "Save failed: " + error.message : "Saved.";
+        if (!error) window.AdminCRUD.logAudit("updated_settings", "site_settings", "constitution_document");
+      });
+    }
+
+    // ---------- Analytics ----------
+    function initAnalytics() {
+      const client = window.ATUAS.getSupabaseClient();
+      const $ = (s) => document.querySelector(s);
+      const monthInput = $("[data-an-month]");
+      const now = new Date();
+      monthInput.value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+      const esc = window.AdminCRUD.escapeHtml;
+      const iso = (y, m, d) => `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+
+      function bars(rows, target) {
+        const max = Math.max(1, ...rows.map((r) => r.views));
+        target.innerHTML = rows.length ? rows.map((r) => `<div class="bar-row"><span>${esc(r.path)}</span><div class="bar-track"><div class="bar-fill" style="width:${(r.views / max) * 100}%"></div></div><b>${r.views}</b></div>`).join("") : '<p style="color:var(--ink-soft);">No visits recorded for this period yet.</p>';
+      }
+      async function showDay(date, btn) {
+        document.querySelectorAll(".cal-day").forEach((b) => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+        const nice = new Date(date + "T00:00:00").toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+        $("[data-an-day-visitors]").textContent = btn.dataset.visitors;
+        $("[data-an-day-views]").textContent = btn.dataset.views;
+        $("[data-an-day-label]").textContent = `Visitors on ${nice}`;
+        $("[data-an-pages-title]").textContent = `Most visited pages on ${nice}`;
+        const { data } = await client.rpc("analytics_pages", { p_from: date, p_to: date });
+        bars(data || [], $("[data-an-pages]"));
+      }
+      async function load() {
+        const [y, m] = monthInput.value.split("-").map(Number);
+        const last = new Date(y, m, 0).getDate();
+        const from = iso(y, m, 1), to = iso(y, m, last);
+        const [daily, sum, pages] = await Promise.all([
+          client.rpc("analytics_daily", { p_from: from, p_to: to }),
+          client.rpc("analytics_summary", { p_from: from, p_to: to }),
+          client.rpc("analytics_pages", { p_from: from, p_to: to }),
+        ]);
+        if (daily.error) { $("[data-an-cal]").innerHTML = `<p>Couldn't load analytics: ${esc(daily.error.message)}. Have you run the Round 2 SQL (setup step 11)?</p>`; return; }
+        const s = (sum.data && sum.data[0]) || { visitors: 0, views: 0 };
+        $("[data-an-visitors]").textContent = s.visitors; $("[data-an-views]").textContent = s.views;
+        $("[data-an-day-visitors]").textContent = "-"; $("[data-an-day-views]").textContent = "-";
+        $("[data-an-day-label]").textContent = "Tap a date";
+        $("[data-an-pages-title]").textContent = "Most visited pages this month";
+        bars(pages.data || [], $("[data-an-pages]"));
+        const byDay = {}; (daily.data || []).forEach((r) => { byDay[r.day] = r; });
+        const lead = new Date(y, m - 1, 1).getDay();
+        let html = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map((d) => `<div class="cal-dow">${d}</div>`).join("");
+        for (let i = 0; i < lead; i++) html += '<div class="cal-day is-empty"></div>';
+        for (let d = 1; d <= last; d++) {
+          const key = iso(y, m, d), r = byDay[key] || { visitors: 0, views: 0 };
+          html += `<button type="button" class="cal-day" data-date="${key}" data-visitors="${r.visitors}" data-views="${r.views}"><small>${d}</small><b>${r.visitors}</b></button>`;
+        }
+        const cal = $("[data-an-cal]"); cal.innerHTML = html;
+        cal.querySelectorAll(".cal-day[data-date]").forEach((b) => b.addEventListener("click", () => showDay(b.dataset.date, b)));
+      }
+      monthInput.addEventListener("change", load);
+      load();
+    }
+
+    // ---------- Page Content ----------
+    const CONTENT_FIELDS = [
+      ["Home: TBSC Quiz Club", [
+        ["tbsc_intro", "Short intro (left column)", "text"],
+        ["tbsc_story", "TBSC history and where we are now (right column)", "paras"],
+        ["tbsc_img_1", "TBSC image 1", "img"], ["tbsc_img_2", "TBSC image 2", "img"],
+        ["tbsc_img_3", "TBSC image 3", "img"], ["tbsc_img_4", "TBSC image 4", "img"]]],
+      ["About page", [
+        ["about_atu_intro_1", "ATU introduction, paragraph 1", "text"],
+        ["about_atu_intro_2", "ATU introduction, paragraph 2", "text"],
+        ["about_mission", "Mission (paste from the constitution)", "text"],
+        ["about_vision", "Vision (paste from the constitution)", "text"],
+        ["alumni_p1", "Alumni paragraph 1", "text"], ["alumni_p2", "Alumni paragraph 2", "text"], ["alumni_p3", "Alumni paragraph 3", "text"],
+        ["alumni_img_1", "Alumni image 1", "img"], ["alumni_img_2", "Alumni image 2", "img"]]],
+      ["Executives page", [["executives_group", "Group photo (hero)", "img"]]],
+    ];
+    async function initContent() {
+      const client = window.ATUAS.getSupabaseClient();
+      const form = document.querySelector("[data-content-form]");
+      const status = document.querySelector("[data-content-status]");
+      const esc = window.AdminCRUD.escapeHtml;
+      const { data } = await client.from("site_content").select("key,value");
+      const cur = {}; (data || []).forEach((r) => { cur[r.key] = r.value; });
+      const box = "width:100%;padding:.7em;border:1.5px solid var(--line);border-radius:var(--radius-s);font-family:var(--font-body);";
+      form.innerHTML = CONTENT_FIELDS.map(([group, fields]) => `
+        <div class="card"><h3 style="font-size:1.05rem;margin-top:0;">${group}</h3>
+        ${fields.map(([key, label, type]) => `<label style="display:block;font-size:.85rem;font-weight:700;color:var(--navy);margin-top:.9rem;">${label}
+          ${type === "paras" ? `<textarea name="${key}" rows="9" style="${box}">${esc(cur[key])}</textarea>`
+          : type === "text" ? `<textarea name="${key}" rows="3" style="${box}">${esc(cur[key])}</textarea>`
+          : `<input type="file" accept="image/*" data-file="${key}" style="width:100%;margin:.3rem 0;"><input type="text" name="${key}" value="${esc(cur[key])}" placeholder="Image URL (filled automatically when you upload)" style="${box}">`}
+        </label>`).join("")}</div>`).join("") + '<button type="submit" class="btn btn--primary" style="justify-self:start;"><span>Save all changes</span></button>';
+      form.onsubmit = async (e) => {
+        e.preventDefault(); status.textContent = "Saving…";
+        const rows = [];
+        for (const [, fields] of CONTENT_FIELDS) for (const [key, , type] of fields) {
+          if (type === "img") {
+            const f = form.querySelector(`[data-file="${key}"]`)?.files?.[0];
+            if (f) {
+              const path = `content-${Date.now()}-${f.name.replace(/[^a-zA-Z0-9._-]/g, "")}`;
+              const up = await client.storage.from("gallery").upload(path, f, { upsert: false });
+              if (up.error) { status.textContent = "Upload failed: " + up.error.message; return; }
+              form.querySelector(`[name="${key}"]`).value = client.storage.from("gallery").getPublicUrl(up.data.path).data.publicUrl;
+            }
+          }
+          rows.push({ key, value: form.querySelector(`[name="${key}"]`).value.trim(), updated_at: new Date().toISOString() });
+        }
+        const { error } = await client.from("site_content").upsert(rows, { onConflict: "key" });
+        status.textContent = error ? "Save failed: " + error.message : "Saved. Public pages update immediately.";
+        if (!error) window.AdminCRUD.logAudit("updated_site_content", "site_content", null, { keys: rows.length });
+      };
+    }
+
+    function initFaculty() {
+      window.AdminCRUD.init({
+        table: "faculty_members", title: "Faculty Member",
+        tableSelector: '[data-admin-table="faculty"]', addButtonSelector: '[data-admin-add="faculty"]',
+        order: { column: "sort_order", ascending: true },
+        columns: [{ key: "name" }, { key: "title" }, { key: "sort_order" }],
+        fields: [
+          { key: "name", label: "Full name", type: "text" }, { key: "title", label: "Title (HOD, Lecturer...)", type: "text" },
+          { key: "photo_path", label: "Photo", type: "image", bucket: "gallery" }, { key: "bio", label: "Short bio", type: "textarea" },
+          { key: "sort_order", label: "Display order (lower = first)", type: "number", default: 0 },
+        ],
+      });
+    }
+    function initFace() {
+      window.AdminCRUD.init({
+        table: "face_of_atuas", title: "Honouree",
+        tableSelector: '[data-admin-table="face"]', addButtonSelector: '[data-admin-add="face"]',
+        order: { column: "created_at", ascending: false },
+        columns: [{ key: "name" }, { key: "year" }, { render: (r) => `<span class="admin-badge ${r.published ? "published" : "draft"}">${r.published ? "Published" : "Draft"}</span>` }],
+        fields: [
+          { key: "name", label: "Name", type: "text" }, { key: "year", label: "Year", type: "text" }, { key: "title", label: "Title", type: "text" },
+          { key: "image_path", label: "Photo", type: "image", bucket: "gallery" }, { key: "description", label: "Description", type: "textarea" },
+          { key: "achievements", label: "Achievements", type: "textarea" }, { key: "published", label: "Published", type: "checkbox", default: false },
+        ],
+      });
+    }
+    async function initMessages() {
+      const client = window.ATUAS.getSupabaseClient();
+      const body = document.querySelector("[data-messages-body]");
+      const esc = window.AdminCRUD.escapeHtml;
+      async function load() {
+        const { data, error } = await client.from("contact_messages").select("*").order("created_at", { ascending: false }).limit(100);
+        if (error) { body.innerHTML = `<tr><td colspan="4">${esc(error.message)}</td></tr>`; return; }
+        body.innerHTML = data.length ? data.map((m) => `<tr><td><strong>${esc(m.name)}</strong><br><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></td><td><strong>${esc(m.subject || "")}</strong><br>${esc(m.message)}</td><td>${new Date(m.created_at).toLocaleString()}</td><td><button class="btn btn--outline btn--sm" data-del="${m.id}" type="button" style="color:var(--red);border-color:var(--red);"><span>Delete</span></button></td></tr>`).join("") : '<tr><td colspan="4">No messages yet.</td></tr>';
+        body.querySelectorAll("[data-del]").forEach((b) => b.addEventListener("click", async () => {
+          if (!confirm("Delete this message?")) return;
+          await client.from("contact_messages").delete().eq("id", b.dataset.del); load();
+        }));
+      }
+      load();
+    }
+
+    window.AdminCRUD.initTabs({
+      analytics: initAnalytics, content: initContent, faculty: initFaculty, face: initFace, messages: initMessages,
+      dashboard: initDashboard,
+      "past-questions": initPastQuestions,
+      resources: initResources,
+      events: initEvents,
+      news: initNews,
+      gallery: initGallery,
+      executives: initExecutives,
+      opportunities: initOpportunities,
+      announcements: initAnnouncements,
+      chatbot: initChatbotTab,
+      settings: initSettings,
+    });
+  });
+</script>
+</body>
+</html>
